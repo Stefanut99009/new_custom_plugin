@@ -55,8 +55,8 @@ function custom_plugin_footer_script()
     </script><?php
 }
 
-add_action('woocommerce_cart_calculate_fees', 'woo_add_cart_ups_y_n_fee', 43, 1);
-function woo_add_cart_ups_y_n_fee($cart)
+add_action('woocommerce_cart_calculate_fees', 'oferta_livrare');
+function oferta_livrare($cart)
 {
     if (!$_POST || (is_admin() && !is_ajax())) {
         return;
