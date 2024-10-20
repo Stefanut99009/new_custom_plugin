@@ -61,17 +61,20 @@ function woo_add_cart_ups_y_n_fee($cart)
     if (!$_POST || (is_admin() && !is_ajax())) {
         return;
     }
-
     if (isset($_POST['post_data'])) {
         parse_str($_POST['post_data'], $post_data);
     } else {
         $post_data = $_POST;
     }
-
     if (isset($post_data['vreau_oferta']) && $post_data['vreau_oferta'] == 1) {
-        $extracost = 10 * WC()->cart->get_cart_contents_weight(); // Fee when the checkbox is checked
-        WC()->cart->add_fee('Cost suplimentar ofertă', $extracost);
+        // Calculate the extra cost based on the cart weight
+        $cost = 10 * WC()->cart->get_cart_contents_weight();
+        $discount = $cost - WC()->cart->get_subtotal();
+
+        // Add the fee to the cart
+        $cart->add_fee(__('Oferta livrare', 'custom_plugin'), $discount);
     }
 }
+
 ?>
 
