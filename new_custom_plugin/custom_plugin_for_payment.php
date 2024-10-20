@@ -69,7 +69,7 @@ function woo_add_cart_ups_y_n_fee($cart)
     }
 
     if (isset($post_data['vreau_oferta']) && $post_data['vreau_oferta'] == 1) {
-        $extracost = 25; // Fee when the checkbox is checked
+        $extracost = 10 * WC()->cart->get_cart_contents_weight(); // Fee when the checkbox is checked
         WC()->cart->add_fee('Cost suplimentar ofertă', $extracost);
     }
 }
