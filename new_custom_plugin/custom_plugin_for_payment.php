@@ -17,9 +17,9 @@ if (!is_plugin_active('woocommerce/woocommerce.php')) {
 }
 
 // Use the correct function name here
-add_filter('woocommerce_checkout_fields', 'checkout_extra_fields');
+add_filter('woocommerce_checkout_fields', 'vreau_oferta');
 
-function checkout_extra_fields($fields)
+function vreau_oferta($fields)
 {
     $fields['billing'] = array_merge(
         array(
@@ -36,8 +36,8 @@ function checkout_extra_fields($fields)
     return $fields;
 }
 
-add_action('wp_footer', 'custom_plugin_footer_script');
-function custom_plugin_footer_script()
+add_action('wp_footer', 'update_inainte_de_refresh');
+function update_inainte_de_refresh()
 {
     ?>
     <script>
@@ -49,7 +49,7 @@ function custom_plugin_footer_script()
     }
     checkbox.addEventListener('change', function () {
     localStorage.setItem('vreau_oferta', checkbox.checked);
-    jQuery('body').trigger('update_checkout'); // Trigger update of WooCommerce checkout
+    jQuery('body').trigger('update_checkout');
     });
     });
     </script><?php
@@ -71,10 +71,7 @@ function oferta_livrare($cart)
         $cost = 10 * WC()->cart->get_cart_contents_weight();
         $discount = $cost - WC()->cart->get_subtotal();
 
-        // Add the fee to the cart
         $cart->add_fee(__('Oferta livrare', 'custom_plugin'), $discount);
     }
 }
-
 ?>
-
