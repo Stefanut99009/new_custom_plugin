@@ -18,3 +18,4 @@ In zona de admin a fiecărei comenzi, checkboxul bifat trebuie sa fie vizibil in
 La bifare checkbox si refresh, pagina de checkout trebuie sa se memoreze faptul ca checkboxul a fost bifat.<br>
 
 Am fost refuzat pe motiv ca nu am destula experienta dupa ce am trimis proiectul postul a fost entry level(0-2 ani experienta) si mid level(2-5), dar cereau 2+ experienta<br>
+Chiar nu inteleg de ce se pune entry level postul daca se cer neaparat 2+ experienta<br>
